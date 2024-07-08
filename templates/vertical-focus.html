@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Personal Assistant (Vertical Focus)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="main">
+<h1>Personal Assistant</h1>
+<div id="tasks">
+<h2>Current Tasks</h2>
+<ul>
+{% for task in tasks %}
+<li>{{ task.description }} ({{ task.priority }})</li>
+{% endfor %}
+</ul>
+<form id="task-add-form">
+<input type="text" name="description" placeholder="Add a task">
+<input type="number" name="priority" placeholder="Priority">
+<input type="submit" value="Add">
+</form>
+</div>
+<div id="calendar">
+<h2>Daily Calendar</h2>
+<ul>
+{% for date, events in calendar.items() %}
+<li><b>{{ date }}</b></li>
+<ul>
+{% for event in events %}
+<li>{{ event }}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+</ul>
+</div>
+<div id="chat">
+<h2>Chat</h2>
+<ul>
+<li>User: Hello, how can I help you?</li>
+<li>Assistant: I can help you with a variety of tasks, such as adding tasks to your to-do list, updating your calendar, and answering your questions.</li>
+</ul>
+<form id="chat-form">
+<input type="text" name="message" placeholder="Ask a question">
+<input type="submit" value="Send">
+</form>
+</div>
+</div>
+</body>
+</html>
+
